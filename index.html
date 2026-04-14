@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./scripts/tableTracking.js" defer></script>
+    <script src="./scripts/habit.js" defer></script>
+    <link rel="icon" href="logo_habit_favicon.png" type="image/png">
+</head>
+<body>
+<header>
+    <!-- Logo -->
+     <img src="logo_habit.png" alt="Habit Tracker Logo" id="logo">
+
+     <h1 id="main-title">Habit Tracker</h1>
+     
+     <nav>
+        <a href="#daily-dashboard">Home</a>
+        <a href="#habit-library-section">Habits</a>
+        <a href="#weekly-progress">Progress</a>
+        <a href="about.html">About</a>
+    </nav>
+   
+     
+</header>
+<div id="username-container" hidden>
+    <div class="username-card">
+        <h2>Welcome to Habit Tracker</h2>
+        <p>Enter your name to get started</p>
+        <label for="username">Name</label>
+        <input type="text" id="username" placeholder="Your name...">
+        <button id="submit-btn">Get Started</button>
+    </div>
+</div>
+        <div class="theme">
+            <label for="theme-select">Theme:</label>
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <!--<option value="high-contrast">High Contrast</option>-->
+            </select>
+        </div>
+   <!-- Export / Import -->
+    <div id="data-management">
+        <label for="import-file">Import Data:</label>
+        <input type="file" id="import-file" accept=".json">
+    </div>
+ 
+    <main>
+    <!-- Daily Dashboard -->
+    <section id="daily-dashboard">
+        <h2>Today's List - <span id="today-date"></span></h2>
+        <div class="daily-tracker">
+            <div id="habit-list">Habit</div>
+            <div id="description"> Description</div>
+            <div id="done">Done?</div>
+            <div id="streak">Streak</div>
+        </div>    
+    </section>
+
+    <!-- Habit Library -->
+    <section id="habit-library-section">
+        <h2>Habit Library</h2>
+        <!-- grid -->
+         <div class="grid-container" id="days-grid">
+                <!-- Header-->
+                <div class="grid-header">Habits</div>
+                <div class="day-label">Sun</div>
+                <div class="day-label">Mon</div>
+                <div class="day-label">Tue</div>
+                <div class="day-label">Wed</div>
+                <div class="day-label">Thu</div>
+                <div class="day-label">Fri</div>
+                <div class="day-label">Sat</div>
+         </div>
+        <div style="display: flex; gap: 10px;">
+            <button id="open-btn"> + Add Custom Habit</button>
+            <button id="remove-btn">Remove Habit</button>
+        </div>
+    </section>
+
+
+    <!-- Weekly Progress  -->
+   <section id="weekly-progress">
+    <h2>Weekly Progress</h2>
+
+    <div id="weekly-progress-content">
+        <div class="progress-item">
+            <span>Habits Completed</span>
+            <span id="completed-count">0</span>
+        </div>
+
+        <div class="progress-item">
+            <span>Best Streak</span>
+            <span id="streak-count">0</span>
+        </div>
+    </div>
+</section>
+     
+    </main>
+     <!-- Custom Habit Creator POP window  -->
+    <section>
+    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-content">
+            <h2 id="modal-title">Create Custom Habit</h2>
+            <form id="habit-form">
+                <label for="habit-name">Name:</label>
+                <input type="text" id="habit-name" required>
+
+                <label for="habit-category">Category:</label>
+                <input type="text" id="habit-category" required>
+
+                <!--
+                <label for="habit-icon">Icon (emoji):</label>
+                <input type="text" id="habit-icon" maxlength="2"> 
+                -->
+                
+                <label for="habit-description">Description:</label>
+                <input type="text" id="habit-description">
+
+                <button type="submit" id="add-habits">Add Habit</button>
+                <button type="button" id="close-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+    </section>
+<footer>
+    <p> 2026 Habit Tracker. CISC 375.</p>
+</footer>
+
+</body>
+</html>
