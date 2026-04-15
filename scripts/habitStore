@@ -1,0 +1,85 @@
+const STORAGE_KEYS = {
+    habits: 'habit',
+    username: 'username',
+    theme: 'theme',
+    weeklyCompletedTotal: 'weeklyCompletedTotal',
+    lastDate: 'lastDate',
+    lastWeekStart: 'lastWeekStart',
+    weeklyHistory: 'weeklyHistory'
+};
+
+function getJsonItem(key, fallbackValue) {
+    const rawValue = localStorage.getItem(key);
+
+    if (!rawValue) {
+        return fallbackValue;
+    }
+
+    try {
+        return JSON.parse(rawValue);
+    } catch {
+        return fallbackValue;
+    }
+}
+
+function setJsonItem(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+export function getHabits() {
+    return getJsonItem(STORAGE_KEYS.habits, []);
+}
+
+export function saveHabits(habits) {
+    setJsonItem(STORAGE_KEYS.habits, habits);
+}
+
+export function getUsername() {
+    return localStorage.getItem(STORAGE_KEYS.username);
+}
+
+export function saveUsername(username) {
+    localStorage.setItem(STORAGE_KEYS.username, username);
+}
+
+export function getTheme() {
+    return localStorage.getItem(STORAGE_KEYS.theme);
+}
+
+export function saveTheme(theme) {
+    localStorage.setItem(STORAGE_KEYS.theme, theme);
+}
+
+export function getLastDate() {
+    return localStorage.getItem(STORAGE_KEYS.lastDate);
+}
+
+export function saveLastDate(date) {
+    localStorage.setItem(STORAGE_KEYS.lastDate, date);
+}
+
+export function getLastWeekStart() {
+    return localStorage.getItem(STORAGE_KEYS.lastWeekStart);
+}
+
+export function saveLastWeekStart(date) {
+    localStorage.setItem(STORAGE_KEYS.lastWeekStart, date);
+}
+
+export function getWeeklyCompletedTotal() {
+    return parseInt(localStorage.getItem(STORAGE_KEYS.weeklyCompletedTotal), 10) || 0;
+}
+
+export function saveWeeklyCompletedTotal(total) {
+    localStorage.setItem(STORAGE_KEYS.weeklyCompletedTotal, total.toString());
+}
+
+export function getWeeklyHistory() {
+    return getJsonItem(STORAGE_KEYS.weeklyHistory, []);
+}
+
+export function saveWeeklyHistory(history) {
+    setJsonItem(STORAGE_KEYS.weeklyHistory, history);
+}
+
+export { STORAGE_KEYS };
