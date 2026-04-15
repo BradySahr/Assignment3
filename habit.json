@@ -1,35 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<header>
-  <nav>
-    <a href="main.html">Home</a>
-    <a href="main.html">Habits</a>
-    <a href="main.html">Progress</a>
-    <a href="about.html">About</a>
-  </nav>
-</header>
-
-<div class="about-container">
-  <h1>About Daily Habit Tracker</h1>
-
-  <p>
-    This website helps users track their daily habits throughout the week.
-    Users can mark habits as completed and see their progress.
-  </p>
-
-  <h2>Contact</h2>
-  <p>Created by: Nabila, Urjii, Brady</p>
-  <p>Email: Jeyl4325@stthomas.edu, kali6568@stthomas.edu, sahr1596@stthomas.edu</p>
-</div>
-
-</body>
-</html>
+[
+  {
+    "name": "Drink 2 Liter Water", 
+    "category": "Health",
+    "description":"stay hydrated",
+    "streak": 0,
+    "longestStreak":0,
+    "completed":false,
+    "completionHistory":[],
+    "scheduledDays": [0, 1, 2, 3, 4, 5, 6]
+},
+  { 
+    "name": "Read 10 Pages", 
+    "category": "Mindfulness",
+    "description": "Read atleast 10 pages of any book",
+    "streak": 0,
+    "longestStreak":0,
+    "completed":false,
+    "completionHistory":[],
+    "scheduledDays": [0, 1, 2, 3, 4, 5, 6]
+},
+{
+    "name":"Exercise for 30 minutes",
+    "category":"Fitness",
+    "description":"Do any kind of exercise",
+    "streak": 0,
+    "longestStreak":0,
+    "icon":"",
+    "custom": false,
+    "completed": false,
+    "completionHistory":[],
+    "scheduledDays": [0, 1,6]
+},
+{
+    "name": "Study for 2 hours", 
+    "category": "Education",
+    "description":"study any subject/course for at least 2 hours",
+    "streak": 0,
+    "longestStreak":0,
+    "icon":"",
+    "custom": false,
+    "completed":false,
+    "completionHistory":[],
+    "scheduledDays": [0, 4, 5, 6]
+}
+]
