@@ -26,58 +26,121 @@ function setJsonItem(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
+/**
+ * Retrieves the saved habits list from localStorage.
+ * @returns {Array<object>} Stored habits or an empty array when missing/invalid.
+ */
 export function getHabits() {
     return getJsonItem(STORAGE_KEYS.habits, []);
 }
 
+/**
+ * Persists the habits list to localStorage.
+ * @param {Array<object>} habits - Habit collection to store.
+ * @returns {void}
+ */
 export function saveHabits(habits) {
     setJsonItem(STORAGE_KEYS.habits, habits);
 }
 
+/**
+ * Retrieves the saved username.
+ * @returns {string|null} Stored username or null when not set.
+ */
 export function getUsername() {
     return localStorage.getItem(STORAGE_KEYS.username);
 }
 
+/**
+ * Persists the username.
+ * @param {string} username - Username value to store.
+ * @returns {void}
+ */
 export function saveUsername(username) {
     localStorage.setItem(STORAGE_KEYS.username, username);
 }
 
+/**
+ * Retrieves the saved UI theme.
+ * @returns {string|null} Stored theme or null when not set.
+ */
 export function getTheme() {
     return localStorage.getItem(STORAGE_KEYS.theme);
 }
 
+/**
+ * Persists the UI theme.
+ * @param {string} theme - Theme value to store.
+ * @returns {void}
+ */
 export function saveTheme(theme) {
     localStorage.setItem(STORAGE_KEYS.theme, theme);
 }
 
+/**
+ * Retrieves the last recorded date.
+ * @returns {string|null} Stored date or null when not set.
+ */
 export function getLastDate() {
     return localStorage.getItem(STORAGE_KEYS.lastDate);
 }
 
+/**
+ * Persists the last recorded date.
+ * @param {string} date - Date string to store.
+ * @returns {void}
+ */
 export function saveLastDate(date) {
     localStorage.setItem(STORAGE_KEYS.lastDate, date);
 }
 
+/**
+ * Retrieves the start date for the last tracked week.
+ * @returns {string|null} Stored week start date or null when not set.
+ */
 export function getLastWeekStart() {
     return localStorage.getItem(STORAGE_KEYS.lastWeekStart);
 }
 
+/**
+ * Persists the start date for the current tracked week.
+ * @param {string} date - Week start date string to store.
+ * @returns {void}
+ */
 export function saveLastWeekStart(date) {
     localStorage.setItem(STORAGE_KEYS.lastWeekStart, date);
 }
 
+/**
+ * Retrieves the weekly completed-habits total.
+ * @returns {number} Stored weekly total, or 0 when not set.
+ */
 export function getWeeklyCompletedTotal() {
     return parseInt(localStorage.getItem(STORAGE_KEYS.weeklyCompletedTotal), 10) || 0;
 }
 
+/**
+ * Persists the weekly completed-habits total.
+ * @param {number} total - Weekly total to store.
+ * @returns {void}
+ */
 export function saveWeeklyCompletedTotal(total) {
     localStorage.setItem(STORAGE_KEYS.weeklyCompletedTotal, total.toString());
 }
 
+/**
+ * Retrieves the weekly history records.
+ * @returns {Array<object>} Stored weekly history or an empty array.
+ */
 export function getWeeklyHistory() {
     return getJsonItem(STORAGE_KEYS.weeklyHistory, []);
 }
 
+/**
+ * Persists weekly history records.
+ * @param {Array<object>} history - Weekly history entries to store.
+ * @returns {void}
+ */
 export function saveWeeklyHistory(history) {
     setJsonItem(STORAGE_KEYS.weeklyHistory, history);
 }
