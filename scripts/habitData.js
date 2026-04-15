@@ -1,5 +1,11 @@
 import { getHabits, saveHabits } from './habitStore.js';
 
+/**
+ * Validates that imported habit data has the expected shape.
+ * @param {unknown} data - Parsed JSON data to validate.
+ * @returns {true} Returns true when validation succeeds.
+ * @throws {Error} Throws when data is not a non-empty habit array.
+ */
 export function validateHabits(data) {
     if (!Array.isArray(data)) {
         throw new Error('Invalid Format: JSON must be an array of habits');
@@ -22,6 +28,10 @@ export function validateHabits(data) {
     return true;
 }
 
+/**
+ * Loads default habits from habit.json when no habits are currently stored.
+ * @returns {Promise<void>} Resolves when loading is complete or skipped.
+ */
 export async function loadInitialHabits() {
     const currentHabits = getHabits();
 
@@ -61,6 +71,12 @@ function readFileAsText(file) {
     });
 }
 
+/**
+ * Imports habits from a user-provided JSON file and appends them to existing habits.
+ * @param {File} file - JSON file containing an array of habit objects.
+ * @returns {Promise<Array<object>>} The merged habit collection after import.
+ * @throws {Error|SyntaxError} Throws if file reading, parsing, or validation fails.
+ */
 export async function importHabitsFromFile(file) {
     const fileContents = await readFileAsText(file);
     const importedHabits = JSON.parse(fileContents);
